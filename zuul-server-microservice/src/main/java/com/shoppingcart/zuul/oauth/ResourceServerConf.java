@@ -28,7 +28,7 @@ public class ResourceServerConf extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         //Endpoints restrictions by user role
         http.authorizeRequests().antMatchers("/api/security/oauth/**").permitAll()//autentication, all users can do it
-                .antMatchers(HttpMethod.GET, "/api/products/products","/api/products/products/view/{id}","/api/products/products/get-products-fakestore","/api/orders/orders","/api/orders/orders/{id}","/api/users/users/","/api/users/users/{id}").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/products/products","/api/products/products/view/{id}","/api/products/products/get-products-fakestore","/api/orders/orders","/api/payments/payments","/api/payments/payments/{id}","/api/orders/orders/{id}","/api/users/users/","/api/users/users/{id}").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/products/create-product","/api/orders/create-order","/api/payments/pay-order","/api/users/users/").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST,"/api/orders/create-order","/api/payments/pay-order").hasRole("USER")
 
